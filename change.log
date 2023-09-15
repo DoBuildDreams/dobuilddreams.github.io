@@ -1,0 +1,10 @@
+1.4 show / hide quiz dom based on timer
+    disable the view score when the quiz is running. enable the view score when the quiz is over.
+
+TODO
+* disable view high score when quiz is active
+* allow user to go back and change answer
+* allow user to submit quiz if finished before timer is up
+* log in first before taking quiz
+* display question and answer, indicating correct or incorrect
+* add in wrong answer time penalty
