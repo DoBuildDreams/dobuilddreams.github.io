@@ -4,9 +4,10 @@ var startBtnEl = document.querySelector('.start-btn')
 var quiz = document.querySelector('.question-title')
 var choices = document.querySelector('.choices')
 var timeLeftEl = document.querySelector('#time-left');
+var viewScore = document.querySelector('.view-score');
 
 var currentQuestionIndex = 0;
-var timeLeft = 60;
+var timeLeft = 5;
 var interValId;
 
 
@@ -58,13 +59,20 @@ var questions = [
 ]
 
 // function to display the current time in our 'time-left' then modify the time left
+/**
+When the quiz is running, disable the high score
+*/
 function functionThatRepeats() {
+    viewScore.disabled = true;
     timeLeftEl.textContent = `${timeLeft} second(s)`;
     timeLeft = timeLeft - 1;
 
+    // time up. Let user know the time is up and hide the quiz so it can not be updated. In addition enable the view high score
     if (timeLeft <= 0) {
         clearInterval(interValId);
         timeLeftEl.textContent = 'time up';
+        quizBox.classList.add('hide');
+        viewScore.disabled = false;
     }
 }
 
@@ -99,6 +107,7 @@ function showQuestions() {
     }
 
 }
+
 
 startBtnEl.addEventListener('click', showQuestions);
 
